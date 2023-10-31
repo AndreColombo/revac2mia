@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 const port = 3000;
 
 // configurando o acesso ao mongodb
-mongoose.connect("mongodb://127.0.0.1:27017/teste", {
+mongoose.connect("mongodb://127.0.0.1:27017/revac2mia", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 20000,
@@ -54,6 +54,16 @@ app.post("/cadastropessoa", async (req, res) => {
   }
 });
 
+app.get("/", async (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+// rota para o get de cadastro
+app.get("/cadastropessoa", async (req, res) => {
+  res.sendFile(__dirname + "/cadastropessoa.html");
+});
+
+// rota raiz - inw
 app.get("/", async (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
